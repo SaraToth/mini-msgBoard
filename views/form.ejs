@@ -10,10 +10,12 @@
     <h1>New Message</h1>
 
     <label for="first-name">First Name:</label>
-    <input type="text" id="first-name" name="first-name">
+    <input type="text" id="first-name" name="firstName" required>
 
     <label for="last-name">Last Name:</label>
-    <input type="text" id="last-name" name="first-name">
+    <input type="text" id="last-name" name="lastName" required>
+
+    <textarea name="messageText" id="message-text" placeholder="Write your message..." required></textarea>
 
     <button>Submit</button>
     </form>
