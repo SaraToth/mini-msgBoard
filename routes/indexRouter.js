@@ -19,7 +19,17 @@ indexRouter.get("/new", (req, res) => {
 })
 
 indexRouter.post("/new", (req, res) => {
-    res.send("posted");
+    const { firstName, lastName, messageText } = req.body;
+
+    const newMessage = {
+        user: firstName + " " + lastName,
+        text: messageText,
+        added: new Date(),
+    };
+
+    messages.push(newMessage);
+    
+    res.redirect("/");
 });
 
 indexRouter.get("/", (req, res) => {
