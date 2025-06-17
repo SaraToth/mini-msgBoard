@@ -28,7 +28,7 @@ indexRouter.post("/new", (req, res) => {
     };
 
     messages.push(newMessage);
-    
+
     res.redirect("/");
 });
 
