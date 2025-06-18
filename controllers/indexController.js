@@ -15,10 +15,12 @@ const messages = [
     },
 ];
 
+//Render form view
 const getForm = (req, res) => {
     res.render("form");
 };
 
+//Submit form on post
 const postForm = (req, res) => {
     const { firstName, lastName, messageText } = req.body;
 
@@ -34,6 +36,7 @@ const postForm = (req, res) => {
     res.redirect("/");
 };
 
+// Get message view
 const getMessage = (req, res) => {
     const { msgId } = req.params;
     const message = messages.find(mes => mes.id === Number(msgId));
@@ -41,6 +44,7 @@ const getMessage = (req, res) => {
     res.render("message", { message: message});
 };
 
+// Get's the index view (Home page)
 const getIndex = (req, res) => {
     res.render("index", {title: "Mini Message Board", messages: messages});
 };
