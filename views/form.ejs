@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
+    <link rel="stylesheet" href="/formStyles.css">
 </head>
 <body>
     <form method="POST" action="/new">
     <h1>New Message</h1>
+    
+    <div class="name">
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="firstName" required>
 
-    <label for="first-name">First Name:</label>
-    <input type="text" id="first-name" name="firstName" required>
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="lastName" required>
+    </div>
+    <textarea rows="5" name="messageText" id="message-text" placeholder="Write your message..." required></textarea>
 
-    <label for="last-name">Last Name:</label>
-    <input type="text" id="last-name" name="lastName" required>
-
-    <textarea name="messageText" id="message-text" placeholder="Write your message..." required></textarea>
-
-    <button>Submit</button>
+    <div class="btn-wrapper"><button>Submit</button></div>
     </form>
 
 </body>
