@@ -1,0 +1,21 @@
+body {
+    margin-left: 50px;
+}
+form {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
