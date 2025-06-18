@@ -1,51 +1,14 @@
 const { Router } = require("express");
 const indexRouter = Router();
-let idCount = 3;
+const { getForm, getIndex, postForm, getMessage } = require("../controllers/indexController");
 
-const messages = [
-    {   
-        id: 1,
-        text: "Hi there!",
-        user: "Amando",
-        added: new Date(),
-    },
-    {
-        id: 2,
-        text: "Hello World",
-        user: "Charles",
-        added: new Date(),
-    },
-];
+indexRouter.get("/new", getForm);
 
-indexRouter.get("/new", (req, res) => {
-    res.render("form");
-})
-
-indexRouter.post("/new", (req, res) => {
-    const { firstName, lastName, messageText } = req.body;
-
-    const newMessage = {
-        id: idCount,
-        user: firstName + " " + lastName,
-        text: messageText,
-        added: new Date(),
-    };
-
-    messages.push(newMessage);
-    idCount++;
-    res.redirect("/");
-});
+indexRouter.post("/new", postForm);
 
 
-indexRouter.get("/message/:msgId", (req, res) => {
-    const { msgId } = req.params;
-    const message = messages.find(mes => mes.id === Number(msgId));
+indexRouter.get("/message/:msgId", getMessage);
 
-    res.render("message", { message: message});
-});
-
-indexRouter.get("/", (req, res) => {
-    res.render("index", {title: "Mini Message Board", messages: messages});
-});
+indexRouter.get("/", getIndex);
 
 module.exports = indexRouter;
