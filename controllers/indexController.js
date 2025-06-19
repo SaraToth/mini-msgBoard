@@ -1,5 +1,4 @@
 const db = require("../db/queries");
-let idCount = 3;
 
 // const messages = [
 //     {   
@@ -22,18 +21,12 @@ const getForm = (req, res) => {
 };
 
 //Submit form on post
-const postForm = (req, res) => {
+const postForm = async (req, res) => {
     const { firstName, lastName, messageText } = req.body;
 
-    const newMessage = {
-        id: idCount,
-        user: firstName + " " + lastName,
-        text: messageText,
-        added: new Date(),
-    };
-
-    messages.push(newMessage);
-    idCount++;
+    const name = firstName + " " + lastName;
+    const date = new Date();
+    await db.createNewMessage(messageText, name, date);
     res.redirect("/");
 };
 
