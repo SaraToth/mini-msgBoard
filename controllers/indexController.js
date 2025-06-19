@@ -1,20 +1,5 @@
 const db = require("../db/queries");
 
-// const messages = [
-//     {   
-//         id: 1,
-//         text: "Hi there!",
-//         user: "Amando",
-//         added: new Date(),
-//     },
-//     {
-//         id: 2,
-//         text: "Hello World",
-//         user: "Charles",
-//         added: new Date(),
-//     },
-// ];
-
 //Render form view
 const getForm = (req, res) => {
     res.render("form");
@@ -31,10 +16,9 @@ const postForm = async (req, res) => {
 };
 
 // Get message view
-const getMessage = (req, res) => {
+const getMessage = async (req, res) => {
     const { msgId } = req.params;
-    const message = messages.find(mes => mes.id === Number(msgId));
-
+    const message = await db.getMessage(Number(msgId));
     res.render("message", { message: message});
 };
 

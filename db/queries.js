@@ -11,4 +11,9 @@ async function createNewMessage(message, name, date) {
     );
 };
 
-module.exports = { getAllMessages, createNewMessage };
+async function getMessage(msgId) {
+    const { rows } = await pool.query("SELECT * FROM messages WHERE id = $1", [msgId]);
+    return rows[0];
+}
+
+module.exports = { getAllMessages, createNewMessage, getMessage };
