@@ -18,7 +18,6 @@ app.use((err, req, res, next) => {
     res.status(500).send("Internal Server Error");
 })
 
-const PORT = 3000;
-app.listen(PORT, () => {
+app.listen(PORT || 3000, () => {
     console.log("App is running");
 });
