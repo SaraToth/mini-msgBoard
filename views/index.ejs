@@ -12,8 +12,8 @@
         <% for(let i = 0; i < messages.length; i++) { %>
             <li>
                 <div class="wrapper">
-                    <span class="user"><%= messages[i].user %></span> <span class="date">(<%= messages[i].added %>)</span><br>
-                    <div class="message"><%= messages[i].text %></div>
+                    <span class="user"><%= messages[i].name %></span> <span class="date">(<%= messages[i].date %>)</span><br>
+                    <div class="message"><%= messages[i].message %></div>
                 </div>
                 <a href="/message/<%= messages[i].id %>">Open</a>
             </li>
